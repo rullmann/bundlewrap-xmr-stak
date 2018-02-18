@@ -8,7 +8,6 @@ Additional setup steps are required.
 
 * Bundles:
   * [dnf](https://github.com/rullmann/bundlewrap-dnf)
-  * [python](https://github.com/rullmann/bundlewrap-python)
 
 ## Setup notes
 
