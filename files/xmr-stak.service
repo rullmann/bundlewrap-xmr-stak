@@ -1,0 +1,27 @@
+[Unit]
+Description=xmr-stak
+After=network.target
+
+[Service]
+User=xmrstak
+Group=xmrstak
+WorkingDirectory=/opt/xmr-stak-bin/bin
+
+Type=forking
+ExecStart=
+
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=XMR Miner
+After=network.target
+
+[Service] 
+Type=simple
+PIDFile=/run/xmr-stak.pid
+ExecStart=/opt/xmr-stak-bin/bin/xmr-stak
+ExecReload=/sbin/start-stop-daemon 
+
+[Install]
+WantedBy=multi-user.target
