@@ -80,6 +80,14 @@ if not node.metadata.get('xmr-stak', {}).get('bootstrap', False):
         'triggers': ['svc_systemd:xmr-stak:restart'],
     }
 
+    files['/opt/xmr-stak-bin/bin/pools.txt'] = {
+        'mode': '0664',
+        'source': '{}.pools.txt'.format(node.name),
+        'owner': 'xmrstak',
+        'group': 'xmrstak',
+        'triggers': ['svc_systemd:xmr-stak:restart'],
+    }
+
     svc_systemd['xmr-stak'] = {
         'needs': ['file:/etc/systemd/system/xmr-stak.service'],
     }
