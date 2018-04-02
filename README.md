@@ -47,5 +47,6 @@ Now you can safely remove the `bootstrap` option and apply again. By doing so th
     'metadata': {
         'xmr-stak': {
             'bootstrap': False, # optional, required for initial setup only
+            'http_port': '8080', # optional, only required for telegraf integration and in case you're not using 8080 in your `config.txt`
         },
     }
