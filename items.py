@@ -59,7 +59,7 @@ actions = {
     'xmr-stak_cmake': {
         'command': 'cd /opt/xmr-stak && cmake . -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF -DCPU_ENABLE=ON -DCMAKE_INSTALL_PREFIX=/opt/xmr-stak-bin && make install',
         'triggered': True,
-        'needed_by': ['svc_systemd:'],
+        'triggers': ['svc_systemd:xmr-stak:restart'],
     },
 }
 
