@@ -59,7 +59,6 @@ actions = {
     'xmr-stak_cmake': {
         'command': 'cd /opt/xmr-stak && cmake . -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF -DCPU_ENABLE=ON -DCMAKE_INSTALL_PREFIX=/opt/xmr-stak-bin && make install',
         'triggered': True,
-        'triggers': ['svc_systemd:xmr-stak:restart'],
     },
 }
 
@@ -89,5 +88,5 @@ if not node.metadata.get('xmr-stak', {}).get('bootstrap', False):
     }
 
     svc_systemd['xmr-stak'] = {
-        'needs': ['file:/etc/systemd/system/xmr-stak.service'],
+        'needs': ['file:/etc/systemd/system/xmr-stak.service', 'action:xmr-stak_cmake'],
     }
